@@ -6,7 +6,7 @@ module.exports = {
      * 
      * @param {discord.Client} client 
      */
-    execute: async function(client) {
+    async execute(client) {
         console.log(`Logged in as ${client.user.tag}`)
     }
 }

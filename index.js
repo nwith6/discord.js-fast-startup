@@ -14,8 +14,8 @@ for (let file of commandFiles) {
 }
 
 for (let file of eventFiles) {
-	let event = require(`${__dirname}/events/${file}`)
-	let eventName = file.split(".")[0]
+	const event = require(`${__dirname}/events/${file}`)
+	const eventName = file.split(".")[0]
 
 	client.on(eventName, async(...args) => {
 		try {
@@ -28,7 +28,7 @@ for (let file of eventFiles) {
 
 client.on('interactionCreate', async (interaction) => {
 	if (interaction.isCommand) {
-		let command = client.commands.get(interaction.commandName)
+		const command = client.commands.get(interaction.commandName)
 		if (!command) return
 
 		try {

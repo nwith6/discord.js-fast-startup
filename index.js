@@ -19,7 +19,7 @@ for (let file of eventFiles) {
 
 	client.on(eventName, async(...args) => {
 		try {
-			event.execute(client, args)
+			await event.execute(client, args)
 		} catch (error) {
 			console.error(error)
 		}

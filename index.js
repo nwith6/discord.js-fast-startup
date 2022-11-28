@@ -2,7 +2,6 @@ const fs = require("fs")
 const { token } = require("./config.json").discord
 const { Client, Collection, Intents } = require("discord.js")
 
-
 const client = new Client({intents: [new Intents(32767)]})
 client.commands = new Collection()
 

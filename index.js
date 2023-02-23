@@ -1,8 +1,8 @@
 const fs = require("fs")
 const { token } = require("./config.json").discord
-const { Client, Collection, Intents } = require("discord.js")
+const { Client, Collection, IntentsBitField } = require("discord.js")
 
-const client = new Client({intents: [new Intents(32767)]})
+const client = new Client({ intents: [new IntentsBitField(32767)] })
 client.commands = new Collection()
 
 const commandFiles = fs.readdirSync(`${__dirname}/commands`).filter(file => file.endsWith('.js'))
@@ -37,9 +37,7 @@ client.on('interactionCreate', async (interaction) => {
 			console.error(error)
 			return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true })
 		}
-	} else {
-		return
-	}
+	} // else if (interaction.isButton) {} ...etc
 })
 
 client.login(token)
